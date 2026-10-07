@@ -20,21 +20,21 @@ export const Scan: React.FC<ScanProps> = ({ onDiagnosisComplete, onCancel }) => 
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImage(reader.result as string);
+        const imageData = reader.result as string;
+        setImage(imageData);
         setError(null);
+        // Auto-analyze immediately after image is selected
+        runAnalysis(imageData);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const startAnalysis = async () => {
-    if (!image) return;
-    
+  const runAnalysis = async (imageData: string) => {
     setIsLoading(true);
     setError(null);
-    
     try {
-      const result = await analyzeCropImage(image);
+      const result = await analyzeCropImage(imageData);
       onDiagnosisComplete(result);
     } catch (err) {
       console.error(err);
@@ -42,6 +42,10 @@ export const Scan: React.FC<ScanProps> = ({ onDiagnosisComplete, onCancel }) => 
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const startAnalysis = () => {
+    if (image) runAnalysis(image);
   };
 
   const reset = () => {

@@ -48,7 +48,11 @@ export default function App() {
         return (
           <Home 
             onPageChange={setCurrentPage} 
-            lastScan={history.length > 0 ? history[0] : undefined} 
+            lastScan={history.length > 0 ? history[0] : undefined}
+            onViewResult={(res) => {
+              setCurrentResult(res);
+              setCurrentPage('result');
+            }}
           />
         );
       case 'scan':

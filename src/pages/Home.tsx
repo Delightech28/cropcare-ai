@@ -7,9 +7,10 @@ import { cn } from '../lib/utils';
 interface HomeProps {
   onPageChange: (page: Page) => void;
   lastScan?: DiagnosisResult;
+  onViewResult?: (result: DiagnosisResult) => void;
 }
 
-export const Home: React.FC<HomeProps> = ({ onPageChange, lastScan }) => {
+export const Home: React.FC<HomeProps> = ({ onPageChange, lastScan, onViewResult }) => {
   return (
     <div className="flex flex-col gap-6 pb-24">
       {/* Hero Section */}
@@ -88,7 +89,7 @@ export const Home: React.FC<HomeProps> = ({ onPageChange, lastScan }) => {
 
         {lastScan ? (
           <div 
-            onClick={() => onPageChange('result')}
+            onClick={() => onViewResult ? onViewResult(lastScan) : onPageChange('result')}
             className="bg-white p-4 rounded-2xl border border-border flex gap-4 items-center cursor-pointer shadow-card active:bg-slate-50 transition-colors"
           >
             <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">

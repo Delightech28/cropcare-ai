@@ -7,46 +7,66 @@ import {
 import { Expert } from '../types';
 import { cn, formatDistance } from '../lib/utils';
 
-// Mock experts data
+// Mock nearby agro support data
 const MOCK_EXPERTS: Expert[] = [
   {
     id: '1',
-    name: 'Dr. Sarah Johnson',
-    type: 'Extension Officer',
-    distance: 1200,
-    contact: '+1 234 567 8901',
-    specialty: 'Cereal Crops & Pest Control',
-    address: 'Green Valley Agriculture Hub, North Sector',
+    name: 'GreenField Agro Store',
+    type: 'Agro Center',
+    distance: 900,
+    contact: '+234 801 234 5678',
+    specialty: 'Pesticides, Fertilizers & Seeds',
+    address: 'Market Road, Along Bypass Junction',
     location: { lat: 0, lng: 0 }
   },
   {
     id: '2',
-    name: 'AgroServe Center',
-    type: 'Agro Center',
-    distance: 2500,
-    contact: '+1 234 567 8902',
-    specialty: 'Fertilizers & Disease Treatment',
-    address: '45 Farm Lane, South District',
+    name: 'Emeka Crop Buyers',
+    type: 'Crop Buyer',
+    distance: 1400,
+    contact: '+234 802 345 6789',
+    specialty: 'Vegetables, Leafy Greens & Herbs',
+    address: 'Farmers Market, Central Area',
     location: { lat: 0, lng: 0 }
   },
   {
     id: '3',
-    name: 'Farmer Michael Ade',
-    type: 'Farmer',
-    distance: 800,
-    contact: '+1 234 567 8903',
-    specialty: 'Organic Farming Specialist',
-    address: 'Ade Family Farms, East Point',
+    name: 'Alhaji Sule Farm Inputs',
+    type: 'Agro Center',
+    distance: 2100,
+    contact: '+234 803 456 7890',
+    specialty: 'Organic Fertilizers & Irrigation',
+    address: 'New Layout, Near Water Works',
     location: { lat: 0, lng: 0 }
   },
   {
     id: '4',
-    name: 'Jane Smith',
-    type: 'Support Agent',
-    distance: 4200,
-    contact: '+1 234 567 8904',
-    specialty: 'Crop Insurance & Tech Support',
-    address: 'CropCare Support Office',
+    name: 'Mama Ngozi Fresh Produce',
+    type: 'Crop Buyer',
+    distance: 600,
+    contact: '+234 804 567 8901',
+    specialty: 'Scent Leaf, Waterleaf & Vegetables',
+    address: 'Daily Market, Behind Town Hall',
+    location: { lat: 0, lng: 0 }
+  },
+  {
+    id: '5',
+    name: 'State Agric Extension Office',
+    type: 'Extension Officer',
+    distance: 3200,
+    contact: '+234 805 678 9012',
+    specialty: 'Free Crop Disease Consultation',
+    address: 'Ministry of Agriculture Complex',
+    location: { lat: 0, lng: 0 }
+  },
+  {
+    id: '6',
+    name: 'BioGrow Agro Services',
+    type: 'Agro Center',
+    distance: 4800,
+    contact: '+234 806 789 0123',
+    specialty: 'Soil Testing & Treatment Plans',
+    address: '12 Industry Road, Industrial Estate',
     location: { lat: 0, lng: 0 }
   }
 ];
@@ -71,7 +91,7 @@ export const Nearby: React.FC = () => {
     return matchesFilter && matchesSearch;
   });
 
-  const filterOptions = ['All', 'Extension Officer', 'Agro Center', 'Farmer', 'Support Agent'];
+  const filterOptions = ['All', 'Agro Center', 'Crop Buyer', 'Extension Officer'];
 
   return (
     <div className="flex flex-col gap-6 pb-24 bg-background min-h-screen">
