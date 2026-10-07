@@ -109,8 +109,6 @@ export const analyzeCropImage = async (base64Image: string): Promise<DiagnosisRe
       if (isRetryable) {
         console.warn(`[CropCare] Model ${model} failed (${code}), trying next...`);
         lastError = err;
-        // Clear cache so next app load re-fetches fresh model list
-        if (code === "NOT_FOUND" || code === 404) resolvedModels = null;
         continue;
       }
       throw err;

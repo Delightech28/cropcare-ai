@@ -17,7 +17,7 @@ export interface DiagnosisResult {
 export interface Expert {
   id: string;
   name: string;
-  type: 'Farmer' | 'Extension Officer' | 'Agro Center' | 'Support Agent';
+  type: 'Farmer' | 'Extension Officer' | 'Agro Center' | 'Support Agent' | 'Crop Buyer';
   distance: number;
   contact: string;
   specialty: string;
